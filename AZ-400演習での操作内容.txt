@@ -1,0 +1,36 @@
+git用ディレクトリの作成
+git init
+git config --global user.name "Eiko Uchida"
+git config --global user.email "eiko1110@yahoo.co.jp"
+git add .
+git status
+git commit -m "This is a initial commit"
+（ここでFileAを変更）
+git add FileA.txt
+git commit -m "Change made to FileA"
+git status
+
+git log ＜＝＝今までの変更が見える
+
+commit 380f8838798bd98f1c6c608c18f3cf6a65fe1374 (HEAD -> main)
+Author: Eiko Uchida <eiko1110@yahoo.co.jp>
+Date:   Sat May 13 10:16:09 2023 +0900
+
+    Change made to FileA
+
+commit 7084cc5289e307b1762033a7983ee762ec1e1e83
+Author: Eiko Uchida <eiko1110@yahoo.co.jp>
+Date:   Sat May 13 10:11:41 2023 +0900
+
+    This is a initial commit
+
+
+git checkout 7084cc5289e307b1762033a7983ee762ec1e1e83
+
+git log
+commit 7084cc5289e307b1762033a7983ee762ec1e1e83 (HEAD)
+Author: Eiko Uchida <eiko1110@yahoo.co.jp>
+Date:   Sat May 13 10:11:41 2023 +0900
+
+    This is a initial commit
+
