@@ -34,3 +34,109 @@ Date:   Sat May 13 10:11:41 2023 +0900
 
     This is a initial commit
 
+git log --all
+commit 380f8838798bd98f1c6c608c18f3cf6a65fe1374 (main)
+Author: Eiko Uchida <eiko1110@yahoo.co.jp>
+Date:   Sat May 13 10:16:09 2023 +0900
+
+    Change made to FileA
+
+commit 7084cc5289e307b1762033a7983ee762ec1e1e83 (HEAD)
+Author: Eiko Uchida <eiko1110@yahoo.co.jp>
+Date:   Sat May 13 10:11:41 2023 +0900
+
+    This is a initial commit
+
+git checkout 380f8838798bd98f1c6c608c18f3cf6a65fe1374 
+Previous HEAD position was 7084cc5 This is a initial commit
+HEAD is now at 380f883 Change made to FileA
+
+git add .        
+git status
+HEAD detached at 380f883
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+
+◆◆ステージング環境のコードをやっぱりやめるとき！
+git checkout main
+Switched to branch 'main'
+A       "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+
+git status       
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+
+
+git rm --cached FileA.txt  
+rm 'FileA.txt'
+
+git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+        deleted:    FileA.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        FileA.txt
+
+git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+        deleted:    FileA.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        FileA.txt
+
+git add .\FileA.txt
+
+git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+        modified:   FileA.txt
+
+
+◆◆ブランチを作成する
+git checkout -b FeatureA
+Switched to a new branch 'FeatureA'
+
+git status
+On branch FeatureA
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+        modified:   FileA.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+
+git add .\FileC.txt 
+git status
+On branch FeatureA
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+        modified:   FileA.txt
+        new file:   FileC.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+
+git commit -m "Added FileC"         
+[FeatureA 66dcfe4] Added FileC
+ 3 files changed, 38 insertions(+), 1 deletion(-)
+ create mode 100644 "AZ-400\346\274\224\347\277\222\343\201\247\343\201\256\346\223\215\344\275\234\345\206\205\345\256\271.txt"
+ create mode 100644 FileC.txt
